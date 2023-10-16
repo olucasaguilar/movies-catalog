@@ -1,8 +1,35 @@
-<h1>Informações de Diretor: <%= @director.name %></h1>
+<h1>Informações de Diretor(a): <%= @director.name %></h1>
 
-<strong>Nome: </strong> <%= @director.name %><br>
-<strong>Nacionalidade </strong> <%= @director.nationality %><br>
-<strong>Data de nascimento </strong> <%= @director.birthdate %><br>
-<strong>Gênero favorito </strong> <%= @director.favorite_genre.name %><br>
+<dl>
+  <dt>
+    <strong>Nome: </strong> <%= @director.name %>
+  </dt>
+  
+  <dd>
+    <strong>Nacionalidade </strong> <%= @director.nationality %>  
+  </dd>
+  
+  <dd>
+    <strong>Data de nascimento </strong> <%= @director.birthdate %>
+  </dd>
+  
+  <dd>
+    <strong>Gênero favorito </strong> <%= @director.favorite_genre.name %>
+  </dd>
+
+  <br>
+
+  <dt>
+    <strong>Filmes dirigidos </strong>
+    <dd>
+      <%= 'Nenhum filme dirigido' if @director.movies.empty? %>
+    </dd>
+    <% @director.movies.each do |movie| %>
+      <dd>
+        <strong>Título: </strong><%= movie.title %>
+      </dd>
+    <% end %>
+  </dt>
+</dl>
 
 <%= link_to 'Editar', edit_director_path(@director) %>

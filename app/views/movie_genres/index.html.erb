@@ -8,7 +8,7 @@
 
 <% @movie_genres.each do |movie_genre| %>
   <strong>Nome: </strong>
-  <%= link_to movie_genre.name, edit_movie_genre_path(movie_genre) %>
+  <%= link_to movie_genre.name, movie_genre_path(movie_genre) %>
   <br>
 <% end %>
 

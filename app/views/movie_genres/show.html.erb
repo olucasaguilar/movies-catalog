@@ -1,0 +1,23 @@
+<h1>Informações do Gênero de Filme: <%= @movie_genre.name %></h1>
+
+<dl>
+  <dt>
+    <strong>Nome: </strong> <%= @movie_genre.name %>
+  </dt>
+
+  <br>
+
+  <dt>
+    <strong>Filmes do gênero </strong>
+    <dd>
+      <%= 'Nenhum filme registrado com esse gênero' if @movie_genre.movies.empty? %>
+    </dd>
+    <% @movie_genre.movies.each do |movie| %>
+      <dd>
+        <strong>Título: </strong><%= movie.title %>
+      </dd>
+    <% end %>
+  </dt>
+</dl>
+
+<%= link_to 'Editar', edit_movie_genre_path(@movie_genre) %>

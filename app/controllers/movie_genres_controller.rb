@@ -3,6 +3,10 @@ class MovieGenresController < ApplicationController
     @movie_genres = MovieGenre.all
   end
 
+  def show
+    @movie_genre = MovieGenre.find(params[:id])
+  end
+
   def new
     @movie_genre = MovieGenre.new
   end
