@@ -9,6 +9,8 @@
 <% @movies.each do |movie| %>
   <strong>Título: </strong>
   <%= link_to movie.title, movie %>
+  <strong>Ano: </strong>
+  <%= movie.year %>
   <br>
 <% end %>
 
