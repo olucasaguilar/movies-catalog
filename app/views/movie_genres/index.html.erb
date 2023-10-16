@@ -1,0 +1,17 @@
+<h1>Gêneros de Filmes</h1>
+
+<% if flash[:notice] %>
+  <div style="margin: 10px 0px">
+    <%= flash[:notice] %>
+  </div>
+<% end %>
+
+<% @movie_genres.each do |movie_genre| %>
+  <strong>Nome: </strong>
+  <%= link_to movie_genre.name, edit_movie_genre_path(movie_genre) %>
+  <br>
+<% end %>
+
+<br>
+
+<%= link_to 'Cadastrar novo gênero de filme', new_movie_genre_path %>
