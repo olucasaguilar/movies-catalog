@@ -4,6 +4,8 @@ class Movie < ApplicationRecord
   belongs_to :director
   belongs_to :movie_genre
 
+  has_one_attached :image
+
   validates :title, presence: true
   validates :year, presence: true
   validates :synopsis, presence: true

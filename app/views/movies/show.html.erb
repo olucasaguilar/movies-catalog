@@ -1,5 +1,9 @@
 <h1>Informações do Filme: <%= @movie.title %></h1>
 
+<strong>Poster: </strong><br>
+<%= image_tag @movie.image, style: 'width: 200px; height: auto' if @movie.image.attached? %>
+<%= 'Sem imagem' unless @movie.image.attached? %> <br><br>
+
 <strong>Título: </strong> <%= @movie.title %><br>
 <strong>Ano: </strong> <%= @movie.year %><br>
 <strong>Sinopse: </strong> <%= @movie.synopsis %><br>
@@ -7,6 +11,8 @@
 <strong>Duração: </strong> <%= @movie.duration %><br>
 <strong>Diretor: </strong> <%= @movie.director.name %><br>
 <strong>Gênero: </strong> <%= @movie.movie_genre.name %><br>
-<strong>Status: </strong> <%= @movie.released? ? 'Lançado' : 'Não lançado' %><br><br>
+<strong>Status: </strong> <%= @movie.released? ? 'Lançado' : 'Não lançado' %><br>
+
+<br>
 
 <%= link_to 'Editar', edit_movie_path(@movie) %>

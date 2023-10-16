@@ -21,7 +21,8 @@ class MoviesController < ApplicationController
                         duration: params[:movie][:duration],
                         director_id: params[:movie][:director_id],
                         movie_genre_id: params[:movie][:movie_genre_id],
-                        status: params[:movie][:status].to_i)
+                        status: params[:movie][:status].to_i,
+                        image: params[:movie][:image])
 
     if @movie.save
       flash[:notice] = 'Filme criado com sucesso'
@@ -42,6 +43,15 @@ class MoviesController < ApplicationController
   def update
     @movie = Movie.find(params[:id])
 
+    new_poster = nil
+    unless params[:movie][:remove_image] == '1'
+      if params[:movie][:image].present?
+        new_poster = params[:movie][:image]
+      elsif @movie.image.attached?
+        new_poster = @movie.image.blob
+      end
+    end
+
     if @movie.update(title: params[:movie][:title],
                       year: params[:movie][:year],
                       synopsis: params[:movie][:synopsis],
@@ -49,7 +59,8 @@ class MoviesController < ApplicationController
                       duration: params[:movie][:duration],
                       director_id: params[:movie][:director_id],
                       movie_genre_id: params[:movie][:movie_genre_id],
-                      status: params[:movie][:status].to_i)
+                      status: params[:movie][:status].to_i,
+                      image: new_poster)
 
       flash[:notice] = 'Filme atualizado com sucesso'
       return redirect_to(movies_path)
