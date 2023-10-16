@@ -6,12 +6,19 @@
   </div>
 <% end %>
 
+<%= 'Nenhum filme cadastrado' if @movies.empty? %>
+
 <% @movies.each do |movie| %>
   <strong>Título: </strong>
-  <%= link_to movie.title, movie %>
+  <%= link_to movie.title, movie %><br>
+
   <strong>Ano: </strong>
-  <%= movie.year %>
-  <br>
+  <%= movie.year %><br>
+
+  <strong>Status: </strong>
+  <%= movie.released? ? 'Lançado' : 'Não lançado' %>
+  
+  <hr>
 <% end %>
 
 <br>

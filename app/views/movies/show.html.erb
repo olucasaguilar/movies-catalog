@@ -7,5 +7,6 @@
 <strong>Duração: </strong> <%= @movie.duration %><br>
 <strong>Diretor: </strong> <%= @movie.director.name %><br>
 <strong>Gênero: </strong> <%= @movie.movie_genre.name %><br>
+<strong>Status: </strong> <%= @movie.released? ? 'Lançado' : 'Não lançado' %><br><br>
 
 <%= link_to 'Editar', edit_movie_path(@movie) %>

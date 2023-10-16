@@ -3,25 +3,28 @@
 <%= form_with model: movie do | f | %>
 
   <%= f.label 'Título' %>
-  <%= f.text_field :title %>
+  <%= f.text_field :title %><br>
 
   <%= f.label 'Ano' %>
-  <%= f.number_field :year %>
+  <%= f.number_field :year %><br>
 
   <%= f.label 'Sinopse' %>
-  <%= f.text_area :synopsis %>
+  <%= f.text_area :synopsis %><br>
 
   <%= f.label 'País' %>
-  <%= f.text_field :country %>
+  <%= f.text_field :country %><br>
 
   <%= f.label 'Duração' %>
-  <%= f.number_field :duration %>
+  <%= f.number_field :duration %><br>
 
   <%= f.label 'Diretor' %>
-  <%= f.collection_select :director_id, directors, :id, :name %>
+  <%= f.collection_select :director_id, directors, :id, :name %><br>
 
   <%= f.label 'Gênero' %>
-  <%= f.collection_select :movie_genre_id, movie_genres, :id, :name %>
+  <%= f.collection_select :movie_genre_id, movie_genres, :id, :name %><br>
+
+  <%= f.label 'Lançado' %>
+  <%= f.check_box :status, checked: movie.released? %><br><br>
 
   <%= f.submit 'Salvar' %>
 <% end %>

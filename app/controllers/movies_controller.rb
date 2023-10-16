@@ -20,7 +20,8 @@ class MoviesController < ApplicationController
                         country: params[:movie][:country],
                         duration: params[:movie][:duration],
                         director_id: params[:movie][:director_id],
-                        movie_genre_id: params[:movie][:movie_genre_id])
+                        movie_genre_id: params[:movie][:movie_genre_id],
+                        status: params[:movie][:status].to_i)
 
     if @movie.save
       flash[:notice] = 'Filme criado com sucesso'
@@ -47,7 +48,8 @@ class MoviesController < ApplicationController
                       country: params[:movie][:country],
                       duration: params[:movie][:duration],
                       director_id: params[:movie][:director_id],
-                      movie_genre_id: params[:movie][:movie_genre_id])
+                      movie_genre_id: params[:movie][:movie_genre_id],
+                      status: params[:movie][:status].to_i)
 
       flash[:notice] = 'Filme atualizado com sucesso'
       return redirect_to(movies_path)

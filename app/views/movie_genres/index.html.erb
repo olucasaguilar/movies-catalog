@@ -6,6 +6,8 @@
   </div>
 <% end %>
 
+<%= 'Nenhum gênero cadastrado' if @movie_genres.empty? %>
+
 <% @movie_genres.each do |movie_genre| %>
   <strong>Nome: </strong>
   <%= link_to movie_genre.name, movie_genre_path(movie_genre) %>

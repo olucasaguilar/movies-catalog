@@ -6,6 +6,8 @@
   </div>
 <% end %>
 
+<%= 'Nenhum diretor(a) cadastrado' if @directors.empty? %>
+
 <% @directors.each do |director| %>
   <strong>Nome: </strong>
   <%= link_to director.name, director %>

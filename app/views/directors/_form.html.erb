@@ -3,16 +3,16 @@
 <%= form_with model: director do | f | %>
 
   <%= f.label 'Nome' %>
-  <%= f.text_field :name %>
+  <%= f.text_field :name %><br>
 
   <%= f.label 'Nacionalidade' %>
-  <%= f.text_field :nationality %>
+  <%= f.text_field :nationality %><br>
 
   <%= f.label 'Data de nascimento' %>
-  <%= f.date_field :birthdate %>
+  <%= f.date_field :birthdate %><br>
 
   <%= f.label 'Gênero favorito' %>
-  <%= f.collection_select :favorite_genre_id, movie_genres, :id, :name %>
+  <%= f.collection_select :favorite_genre_id, movie_genres, :id, :name %><br><br>
 
   <%= f.submit 'Salvar' %>
 <% end %>
