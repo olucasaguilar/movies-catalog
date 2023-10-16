@@ -1,0 +1,8 @@
+<h1>Informações de Diretor: <%= @director.name %></h1>
+
+<strong>Nome: </strong> <%= @director.name %><br>
+<strong>Nacionalidade </strong> <%= @director.nationality %><br>
+<strong>Data de nascimento </strong> <%= @director.birthdate %><br>
+<strong>Gênero favorito </strong> <%= @director.favorite_genre.name %><br>
+
+<%= link_to 'Editar', edit_director_path(@director) %>
