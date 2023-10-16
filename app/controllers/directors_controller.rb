@@ -44,6 +44,7 @@ class DirectorsController < ApplicationController
       return redirect_to(directors_path)
     end
 
+    @movie_genres = MovieGenre.all
     render :edit
   end
 end

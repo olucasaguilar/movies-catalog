@@ -1,5 +1,11 @@
 <h1>Diretores</h1>
 
+<% if flash[:notice] %>
+  <div style="margin: 10px 0px">
+    <%= flash[:notice] %>
+  </div>
+<% end %>
+
 <% @directors.each do |director| %>
   <strong>Nome: </strong>
   <%= link_to director.name, director %>

@@ -1,0 +1,17 @@
+<h1>Filmes</h1>
+
+<% if flash[:notice] %>
+  <div style="margin: 10px 0px">
+    <%= flash[:notice] %>
+  </div>
+<% end %>
+
+<% @movies.each do |movie| %>
+  <strong>Título: </strong>
+  <%= link_to movie.title, movie %>
+  <br>
+<% end %>
+
+<br>
+
+<%= link_to 'Novo Filme', new_movie_path %>
